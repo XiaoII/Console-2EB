@@ -183,10 +183,10 @@ public class IGC_Shell : MonoBehaviour{
 				yield return false;
 			}else if(Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete)){ 
 				TypeChar(message);
-				yield return new WaitForSeconds(20f);
+				yield return new WaitForSeconds(200f);
 			}else if (Input.GetKey(KeyCode.Backspace) || Input.GetKey(KeyCode.Delete)){
 				TypeChar(message);
-				yield return new WaitForSeconds(20f);
+				yield return new WaitForSeconds(200f);
 			}else if (!Input.GetKey(KeyCode.Backspace) || Input.GetKey(KeyCode.Delete)){
 				yield return false;
 			}
