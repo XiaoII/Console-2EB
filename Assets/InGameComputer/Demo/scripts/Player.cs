@@ -5,9 +5,9 @@ public class Player : MonoBehaviour {
 
 	public Material crosshairActive, crosshairInactive;
 	public float 
-		moveSpeed = 8,
-		lookSpeed = 2,
-		reach = 10;
+		moveSpeed = 3,
+		lookSpeed = 1,
+		reach = 5;
 
 	[HideInInspector] public bool 
 		pauseMovement = false,
@@ -102,7 +102,7 @@ public class Player : MonoBehaviour {
 		}
 		else if(hit.transform.tag != "computer" && currentComp != null)
 		{
-			pauseMovement = false;
+            pauseMovement = false;
 			currentComp.LeaveComputer();
 			currentComp = null;
 		}
