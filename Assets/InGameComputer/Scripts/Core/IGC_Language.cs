@@ -49,6 +49,9 @@ public class IGC_Language : MonoBehaviour{
 		commands.Add ("history", new IGC_Command_history(ref this.virtualSystem));
 		commands.Add ("shutdown", new IGC_Command_shutdown(ref this.virtualSystem));
         commands.Add ("netscan", new IGC_Command_netscan(ref this.virtualSystem));
+        commands.Add("extract", new IGC_Command_extract(ref this.virtualSystem));
+        commands.Add("tutorial", new IGC_Command_tutorial(ref this.virtualSystem));
+
 
         //aliases 
         commands.Add ("su", new IGC_Command_login(ref this.virtualSystem));

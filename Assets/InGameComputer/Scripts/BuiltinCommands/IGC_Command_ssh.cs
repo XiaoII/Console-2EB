@@ -27,7 +27,7 @@ public class IGC_Command_ssh : IGC_Command {
 
 		string remoteIP = remoteAddress [1];
 
-		GameObject r = GameObject.Find ("Computer_" + remoteIP);
+		GameObject r = GameObject.Find ("Computer " + remoteIP);
 		if(r == null){return "no host with that address";}
 		if(!r.GetComponent<InGameComputer>().powerState){return "no response. are you sure the machine you're trying to access is not off?";}
 

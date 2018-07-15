@@ -235,20 +235,41 @@ public class InGameComputer : MonoBehaviour {
 		}
 	}
 
-	public void UpdateInfoLine()
-	{
+    public void UpdateInfoLine()
+    {
+        if (currentUser.name == "tutorial")
+        {
+            if (currentUser == null || virtualSystem == null)
+            {
+                Debug.LogWarning("you're trying to update the infoline with invalid data");
+                return;
+            }
 
-		if(currentUser == null || virtualSystem == null){
-			Debug.LogWarning("you're trying to update the infoline with invalid data");
-			return;
-		}
 
-		string text = currentUser.name + " @ " + virtualSystem.IP;
+            string text = "Tutorial - Type tutorial and press enter to get started";
 
-		infoLine.text = currentUser == null 
-			? "" 
-			: text.Substring(0, (text.Length < shell.displayWidth ? text.Length : shell.displayWidth));
-	}
+            infoLine.text = currentUser == null
+                ? ""
+                : text.Substring(0, (text.Length < shell.displayWidth ? text.Length : shell.displayWidth));
+        }
+
+        else
+        {
+            if (currentUser == null || virtualSystem == null)
+            {
+                Debug.LogWarning("you're trying to update the infoline with invalid data");
+                return;
+            }
+
+
+            string text = currentUser.name + " @ " + virtualSystem.IP;
+
+            infoLine.text = currentUser == null
+                ? ""
+                : text.Substring(0, (text.Length < shell.displayWidth ? text.Length : shell.displayWidth));
+
+        }
+    }
 
 	public void SetPrevUser(IGC_User user)
 	{

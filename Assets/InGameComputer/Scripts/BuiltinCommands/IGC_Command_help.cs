@@ -22,7 +22,7 @@ public class IGC_Command_help : IGC_Command {
 
 		string output = "";
 
-		output += "Welcome to the "+virtualSystem.modelName+" Workstation!\n";
+		output += "Welcome to "+virtualSystem.modelName+" \n";
 
 		for(int i=0; i<shell.displayXY[0]; i++){output += "=";}// horizontal bar
 		output += "general use:\n";

@@ -64,7 +64,7 @@ public class IGC_VirtualSystem : MonoBehaviour {
 
        
         //make random for better immersion
-        gameObject.name = "Computer " + IP;
+        gameObject.name = "Computer_" + IP;
 
 
 
