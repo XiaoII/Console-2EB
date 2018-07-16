@@ -51,6 +51,7 @@ public class IGC_Language : MonoBehaviour{
         commands.Add ("netscan", new IGC_Command_netscan(ref this.virtualSystem));
         commands.Add("extract", new IGC_Command_extract(ref this.virtualSystem));
         commands.Add("tutorial", new IGC_Command_tutorial(ref this.virtualSystem));
+        commands.Add("email", new IGC_Command_email(ref this.virtualSystem));
 
 
         //aliases 

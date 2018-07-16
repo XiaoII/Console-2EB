@@ -22,6 +22,7 @@ public class IGC_Command_tutorial : IGC_Command
         output += "Use these commands to find and open the file - tutorial2.txt on this PC\n";
         output += "If you get stuck type 'help' and all commands will be explained \n";
         //output += " \n";
-        return output;
+        issuer.terminal.shell.EnterViewMode(output);
+        return "";
     }
 }
