@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class IGC_Command_email : IGC_Command
 {
@@ -16,30 +17,78 @@ public class IGC_Command_email : IGC_Command
         IGC_Shell shell = issuer.terminal.shell;
         IGC_Language lang = virtualSystem.language;
         string[] content = new string[4];
+        int numberOfEmails = 0;
+        
 
-        content = GetText();
+        //content = GetText();
+
+        numberOfEmails = GetNumberOfEmails();
 
         string output = "";
         output += "MootLuck Email Client \n";
+        for (int i = 0; i < shell.displayXY[0]; i++) { output += "="; }
         //output += " \n";
-        for (int i = 0; i < shell.displayXY[0]; i++) { output += "="; }
-        output += "To: " +content[0]+ "\n";
-        output += "From: " + content[1] + "\n";
-        output += "Subject: " + content[2] + "\n";
-        for (int i = 0; i < shell.displayXY[0]; i++) { output += "_"; }
-        output += "Message: " + content[3] + "\n";
-        for (int i = 0; i < shell.displayXY[0]; i++) { output += "="; }
 
-        issuer.terminal.shell.EnterViewMode(output);
-        return "";
+
+        if (numberOfEmails == 0)
+        {
+            for (int i = 0; i < shell.displayXY[0]; i++) { output += "~"; }
+            output += " You have no emails to read \n";
+            for (int i = 0; i < shell.displayXY[0]; i++) { output += "_"; }
+            return output;
+        }
+        else
+        {
+            for (int j = 0; j <= numberOfEmails; j++)
+            {
+                content = GetText(j);
+                output += "To: " + content[0] + "\n";
+                output += "From: " + content[1] + "\n";
+                output += "Subject: " + content[2] + "\n";
+                //for (int i = 0; i < shell.displayXY[0]; i++) { output += "_"; }
+                output += "Message: " + content[3] + "\n";
+                for (int i = 0; i < shell.displayXY[0]; i++) { output += "="; }
+
+                issuer.terminal.shell.EnterViewMode(output);
+                
+            }
+            return "";
+        }
     }
 
-    public string[] GetText()
+    public string[] GetText(int line)
     {
-        string[] email = new string[4];
-        TextAsset text = Resources.Load("emails") as TextAsset;
+        string[] emailContent = new string[4];
+        int numberOfEmails = 0;
         
+        TextAsset text = Resources.Load("emails") as TextAsset;
+       
 
-        return email;
+        //get number of emails first, then define the array based on that number
+        numberOfEmails = GetNumberOfEmails();
+        string[] emailLine = new string[numberOfEmails];
+
+        emailLine = text.ToString().Split('\n');
+        emailContent = emailLine[line].ToString().Split('^');
+        
+        //get each line as email
+        //split line into parts of email
+
+        //emails = text.ToString().Split('^');
+           
+        return emailContent;
+    }
+
+    public int GetNumberOfEmails()
+    {
+        int numberOfEmails = 0;
+        string[] readText = File.ReadAllLines("Assets/Resources/emails.txt");
+        numberOfEmails = readText.Length;
+        Debug.Log(readText);
+        //TextAsset text = Resources.Load("emails") as TextAsset;
+        //numberOfEmails = readText.ToString().Split('\n').Length-1;
+        Debug.Log("Get number of emails = " + numberOfEmails);
+
+        return numberOfEmails;
     }
 }
