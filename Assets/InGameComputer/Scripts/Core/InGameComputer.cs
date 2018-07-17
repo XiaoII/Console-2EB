@@ -246,7 +246,7 @@ public class InGameComputer : MonoBehaviour {
             }
 
 
-            string text = "Tutorial - Type tutorial and press enter to get started";
+            string text = "Tutorial - Check your emails - type 'email' to get started";
 
             infoLine.text = currentUser == null
                 ? ""

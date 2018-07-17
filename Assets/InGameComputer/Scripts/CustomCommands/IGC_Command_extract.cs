@@ -16,7 +16,7 @@ public class IGC_Command_extract : IGC_Command
         if (argv.Length != 3) { return this.malformed_error + "\n" + this.usage; }
         else
             GameManager.instance.tutorialProgression = 1;
-        Debug.Log(GameManager.instance.tutorialProgression);
+        //Debug.Log(GameManager.instance.tutorialProgression);
         GameManager.instance.Progress();
         return "file moved";
     }

@@ -21,7 +21,7 @@ public class IGC_Command_edit : IGC_Command {
 		IGC_URL url = fs.ParseURL (argv [1], issuer.cwd);
 		IGC_File file = fs.GetFile (url.fullpath);
 
-		if(file == null){ return url.fullpath+" does not exits";}
+		if(file == null){ return url.fullpath+" does not exist";}
 
 		if(!fs.CanEditFile(file, issuer)){ return "you do not have permission to edit this file";}
 

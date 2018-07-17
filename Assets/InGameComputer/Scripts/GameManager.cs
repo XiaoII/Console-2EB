@@ -35,10 +35,10 @@ public class GameManager : MonoBehaviour {
         if (GameManager.instance.tutorialProgression == 1)
         {
             
-            File.AppendAllText("Assets/Resources/emails.txt", "Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial5^Tutorial5 - Been added by GameManager^" + " \n");
-            File.AppendAllText("Assets/Resources/emails.txt", "Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial6^Tutorial6 is this on a new line?^" + " \n");
+            File.AppendAllText("Assets/Resources/emails.txt", " \n" + "Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial5^Tutorial5 - Been added by GameManager^" );
+            File.AppendAllText("Assets/Resources/emails.txt", " \n" + "Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial6^Tutorial6 is this on a new line?^");
 
-            Debug.Log("Text added");
+            //Debug.Log("Text added");
             
 
 

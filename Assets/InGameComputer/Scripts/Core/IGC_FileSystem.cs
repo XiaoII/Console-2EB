@@ -293,6 +293,7 @@ public class IGC_FileSystem : MonoBehaviour{
 		files.Remove (oldURL.fullpath);
 		
 		file.path = newURL.fullpath;
+        
 		file.transform.parent = GetFile (newURL.dirpath).transform;
 		file.gameObject.name = newURL.filename;
 		

@@ -39,7 +39,7 @@ public class IGC_Command_email : IGC_Command
         }
         else
         {
-            for (int j = 0; j <= numberOfEmails; j++)
+            for (int j = 0; j < numberOfEmails; j++)
             {
                 content = GetText(j);
                 output += "To: " + content[0] + "\n";
@@ -60,22 +60,28 @@ public class IGC_Command_email : IGC_Command
     {
         string[] emailContent = new string[4];
         int numberOfEmails = 0;
+        numberOfEmails = GetNumberOfEmails();
+
+        //TextAsset text = Resources.Load("emails") as TextAsset;
         
-        TextAsset text = Resources.Load("emails") as TextAsset;
-       
+        
 
         //get number of emails first, then define the array based on that number
-        numberOfEmails = GetNumberOfEmails();
+        
         string[] emailLine = new string[numberOfEmails];
-
-        emailLine = text.ToString().Split('\n');
-        emailContent = emailLine[line].ToString().Split('^');
+        
+        string[] text = File.ReadAllLines("Assets/Resources/emails.txt");
+        
+        
+        
+        
+        emailContent = text[line].ToString().Split('^');
         
         //get each line as email
         //split line into parts of email
 
         //emails = text.ToString().Split('^');
-           
+        
         return emailContent;
     }
 
@@ -84,10 +90,10 @@ public class IGC_Command_email : IGC_Command
         int numberOfEmails = 0;
         string[] readText = File.ReadAllLines("Assets/Resources/emails.txt");
         numberOfEmails = readText.Length;
-        Debug.Log(readText);
+        //Debug.Log(readText.Length);
         //TextAsset text = Resources.Load("emails") as TextAsset;
         //numberOfEmails = readText.ToString().Split('\n').Length-1;
-        Debug.Log("Get number of emails = " + numberOfEmails);
+        //Debug.Log("Get number of emails = " + numberOfEmails);
 
         return numberOfEmails;
     }

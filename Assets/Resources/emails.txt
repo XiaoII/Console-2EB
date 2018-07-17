@@ -1,2 +1,3 @@
+Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial 1^Tutorial 1 - Basics: Type 'pwd' to see which directory you are currently in. 'ls' to show the files/folders in the current folder. 'cd' to change to a directory you specify. 'cat' opens the file you specify. Use these commands to find and open the file - tutorial2.txt on this PC. If you get stuck type 'help' and all commands will be explained.^  
 Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial5^Tutorial5 - Been added by GameManager^ 
-Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial6^Tutorial6 is this on a new line?^ 
+Tutorial@LazySharkGaming.com^Admin@LazySharkGaming.com^Tutorial6^Tutorial6 is this on a new line?^
