@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Mono.Data.Sqlite;
+using System.Data;
+using System;
+
+//https://answers.unity.com/questions/743400/database-sqlite-setup-for-unity.html
 
 
 public class GameManager : MonoBehaviour {
@@ -22,7 +27,7 @@ public class GameManager : MonoBehaviour {
 
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
-
+        
     }
 
     // Update is called once per frame
@@ -45,5 +50,9 @@ public class GameManager : MonoBehaviour {
         }
     }
     
-}
+        
+
+    }
+
+
 
