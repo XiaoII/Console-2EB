@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour {
 
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
-        
+
+        OpenDataBase();
     }
 
     // Update is called once per frame
@@ -49,10 +50,42 @@ public class GameManager : MonoBehaviour {
 
         }
     }
-    
-        
 
+    public void OpenDataBase()
+    {
+        string conn = "URI=file:" + Application.dataPath + "/SASDB.s3db"; //Path to database.
+        IDbConnection dbconn;
+        dbconn = (IDbConnection)new SqliteConnection(conn);
+        dbconn.Open(); //Open connection to the database.
+        IDbCommand dbcmd = dbconn.CreateCommand();
+        string sqlQuery = "select * from email";
+        dbcmd.CommandText = sqlQuery;
+        IDataReader reader = dbcmd.ExecuteReader();
+        while (reader.Read())
+        {
+
+            string to = reader.GetString(1);
+            string from = reader.GetString(2);
+            string subject = reader.GetString(3);
+            string body = reader.GetString(4);
+            int active = reader.GetInt32(5);
+            int read = reader.GetInt32(6);
+            int archived = reader.GetInt32(7);
+            int repliedto = reader.GetInt32(8);
+            string reply = reader.GetString(9);
+
+            Debug.Log("to= " + to + "  from =" + from + "  subject =" + subject + "  body =" + body + "  active =" + active + "  read =" + read + "  archived =" + archived + "  replied to =" + repliedto + "  reply =" + reply);
+        }
+        reader.Close();
+        reader = null;
+        dbcmd.Dispose();
+        dbcmd = null;
+        dbconn.Close();
+        dbconn = null;
     }
+
+
+}
 
 
 
